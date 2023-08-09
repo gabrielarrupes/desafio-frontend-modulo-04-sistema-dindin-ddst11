@@ -1,0 +1,14 @@
+.background-container {
+    width: 100vw;
+    height: 100vh;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.background-logo {
+    width: 169px;
+    height: 45px;
+
+    margin: 40px 0 0 100px; 
+}

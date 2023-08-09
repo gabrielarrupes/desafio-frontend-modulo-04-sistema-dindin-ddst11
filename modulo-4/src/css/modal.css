@@ -1,0 +1,68 @@
+
+.modal-title-box {
+    display: flex;
+    justify-content: space-between;
+    
+    margin-bottom: 52px;
+}
+  
+.modal-label-gap {
+    display: block;
+    margin-bottom: 10px;
+}
+  
+.modal-input {
+    width: 485px;
+    height: 63.486px;
+  
+    margin-bottom: 26px;
+    padding: 10px;
+  
+    border-radius: 5px;
+    border: 1px solid #555;
+}
+
+.modal-btn-confirm {
+    width: 236px;
+    height: 42px;
+
+    border-radius: 5px; 
+}
+
+.modal-btn-gap {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 10px;
+}
+
+.modal-transactions-container {
+    width: 611px;
+    height: 879px;
+
+    display: flex;
+    flex-direction: column;
+  
+    padding: 61px 64px 52px 64px;
+
+    border-radius: 20px;
+}
+  
+.modal-transactions-in-out-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-transactions-in-out-box {
+    display: flex;
+    margin-bottom: 42px;
+}
+  
+.modal-transactions-in-out-btn {
+    width: 245px;
+    height: 60px;
+    
+    border-radius: 5px
+}
+  
+  

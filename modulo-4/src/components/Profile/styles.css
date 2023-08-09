@@ -1,0 +1,8 @@
+.profile-name {
+    margin-right: 16px;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+}

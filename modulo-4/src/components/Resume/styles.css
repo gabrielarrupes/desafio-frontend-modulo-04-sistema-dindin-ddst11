@@ -1,0 +1,35 @@
+.resume-container {
+    width: 236px;
+    height: 196px;
+
+    padding: 26px 33px 32px 33px;
+
+    border-radius: 10px;
+    box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.10);
+}
+
+.resume-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin: 23px 0 19px 0;
+}
+
+.resume-transactions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume-line {
+    width: 189px;
+    height: 1px;
+}
+
+.resume-transactions-money {
+    text-align: right;
+}
+
+.resume-transactions-balance-value {
+    text-align: right; 
+}

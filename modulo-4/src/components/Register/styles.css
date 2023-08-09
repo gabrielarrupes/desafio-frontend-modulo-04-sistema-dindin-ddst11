@@ -1,0 +1,20 @@
+.register-container {
+    width: 513px;
+    height: 781px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.register-title {
+    margin: 61px 171px 42px 171px;
+}
+
+.btn-register {
+    margin-bottom: 12px;
+}
+
+.link-redirect {
+    text-decoration: none;
+}
+

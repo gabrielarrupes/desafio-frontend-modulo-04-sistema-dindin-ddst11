@@ -1,0 +1,36 @@
+
+.sign-container {
+    width: 100vw;
+    height: 100vh;
+}
+  
+.sign-label-form {
+    display: block;
+
+    margin-left: 33px;
+    margin-bottom: 8px;
+}
+  
+.sign-input-form {
+    width: 449px;
+    height: 63px;
+  
+    margin-left: 33px;
+    padding-left: 5px;
+
+    border-radius: 5px;
+    border: 1px solid #555;  
+}
+  
+.sign-input-gap {
+    margin-bottom: 31px;
+}
+  
+.sign-btn-form {
+    width: 449px;
+    height: 49px;
+
+    margin-left: 32px;
+    border-radius: 5px;
+}
+  

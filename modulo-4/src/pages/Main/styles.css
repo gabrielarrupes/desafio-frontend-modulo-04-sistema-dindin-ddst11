@@ -1,0 +1,75 @@
+.main-container {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(90deg, #05EDE3 0%, #645FFB 100%);
+}
+
+.main-header {
+    width: 100vw;
+    height: 118px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dindin-logo {    
+    margin-left: 100px;
+}
+
+.main-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-right: 100px;
+}
+
+.main-functionalities {
+    width: 100vw;
+    height: 927px;
+
+    display: flex;
+    gap: 34px;
+
+    padding: 55px 100px 0px 105px;
+    border-radius: 60px 60px 0px 0px;
+}
+
+.btn-filter {
+    width: 80px;
+    height: 30px;
+
+    border-radius: 10px;
+    box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.10);
+}
+
+.main-transactions {
+    display: flex;
+    flex-direction: column;
+    gap: 34px
+}
+
+.main-resume {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    margin-top: 56px;
+}
+
+.main-resume-sidebar {
+    height: 200px;
+    width: 200px;
+}
+
+.btn-add-transaction {
+    width: 236px;
+    height: 46px;
+
+    border-radius: 5px;
+}

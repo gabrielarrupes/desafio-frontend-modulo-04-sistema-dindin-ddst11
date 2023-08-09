@@ -1,0 +1,15 @@
+
+.info-register-container {
+    width: 614px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+}
+
+.info-register-btn {
+    width: 284px;
+    height: 48px;
+    
+    border-radius: 5px;
+}

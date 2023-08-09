@@ -1,0 +1,68 @@
+.table-container {
+    height: 200px;
+    width: 964px;
+}
+
+.table-header {
+    height: 58px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-right: 45px;
+
+    border-radius: 10px;
+    box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.10)
+}
+
+.table-row {
+    height: 69px;
+
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    
+    border-bottom: 2px solid #E0E0E0;
+}
+
+.table-date {
+    width: 40px;
+}
+
+.table-day {
+    width: 95px;
+}
+
+.table-description {
+    width: 255px;
+}
+
+.table-category {
+    width: 118px;
+}
+
+.table-money {
+    width: 85px;
+}
+
+.table-ml {
+    margin-left: 27px;
+}
+
+.table-row-transactions {
+    width: 858px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-row-icons {
+    display: flex;
+    gap: 13px;
+}
+
+#table-edit-modal-button{
+    background: none;
+}

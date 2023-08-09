@@ -1,0 +1,11 @@
+@import url('./colors.css');
+@import url('./fonts.css');
+@import url('./utils.css');
+@import url('./modal.css');
+@import url('./sign.css');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
