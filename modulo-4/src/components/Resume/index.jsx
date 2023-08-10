@@ -2,7 +2,7 @@ import './styles.css'
 import { api } from '../../services/api';
 import { useEffect, useState } from 'react'
 
-export default function Resume () {
+export default function Resume ({transact}) {
 
     const [resumeValues, setResumeValues] = useState([])
 
@@ -25,7 +25,7 @@ export default function Resume () {
 
    useEffect(() => {
         getBalanceResume()   
-    },[])
+    },[transact])
 
     return (
         <div className='resume-container bg-colorFAFAFA'>

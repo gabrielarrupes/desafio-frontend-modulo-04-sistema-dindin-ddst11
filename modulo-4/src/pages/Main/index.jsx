@@ -56,7 +56,7 @@ export default function Main() {
           </div>
         <div className='main-resume'>
             <div className='main-resume-sidebar'>
-              <Resume/>
+              <Resume transact={transact}/>
             </div>
             <div className='main-sidebar-btn-add-transaction'>
               <button className='btn-add-transaction colorFFFFFF bg-color7978D9 rubik700 fsize-14 border-none pointer' type='submit' onClick={() => setModal(true)}>Adicionar Registro</button>
