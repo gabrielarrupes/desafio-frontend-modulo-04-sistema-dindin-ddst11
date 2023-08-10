@@ -66,3 +66,18 @@
 #table-edit-modal-button{
     background: none;
 }
+
+.sort-date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.sort-date-arrow-up {
+    transform: rotate(180deg);
+}
+.sort-date-arrow-down {
+    transform: rotate(0deg);  
+}
