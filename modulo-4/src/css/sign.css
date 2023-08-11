@@ -16,10 +16,12 @@
     height: 63px;
   
     margin-left: 33px;
-    padding-left: 5px;
+    padding-left: 20px;
 
     border-radius: 5px;
     border: 1px solid #555;  
+    font-size: 20px;
+
 }
   
 .sign-input-gap {
