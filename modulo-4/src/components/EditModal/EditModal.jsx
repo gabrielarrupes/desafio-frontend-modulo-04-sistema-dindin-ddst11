@@ -13,6 +13,7 @@ export default function EditModal({ setEditModal, editModal, id, transact, setTr
   
   const [category, setCategory] = useState();
 
+  
   const getCategorias = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -68,7 +69,6 @@ export default function EditModal({ setEditModal, editModal, id, transact, setTr
     }
 
     setFormError('');
-
     try {
       const token = await localStorage.getItem('token')
       await api.put(`transacao/${id}`, copyEditModal, { headers: { Authorization: `Bearer ${token}` } })

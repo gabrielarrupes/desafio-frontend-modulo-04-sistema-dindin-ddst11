@@ -12,7 +12,7 @@ export default function Modal({ modal, setModal, customType, setCustomType }) {
     const [formData, setFormData] = useState({
         tipo: "",
         descricao: "",
-        valor: "",
+        valor: 0,
         data: "",
         categoria_id: "",
         categoria: ""
@@ -42,6 +42,7 @@ export default function Modal({ modal, setModal, customType, setCustomType }) {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
+
         setFormData((prevFormulario) => ({
             ...prevFormulario,
             [name]: value
@@ -73,6 +74,9 @@ export default function Modal({ modal, setModal, customType, setCustomType }) {
             setFormError("Data inválida")
             return;
         }
+
+
+        setFormData({...formData, valor: formData.valor * 1000 })
 
         let token = await localStorage.getItem('token')
         try {

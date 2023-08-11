@@ -1,5 +1,5 @@
 import './styles.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import close from '../../assets/close.svg'
 
@@ -8,12 +8,13 @@ export default function ModalEditUserData ({formProfile, setFormProfile, modalUs
         const [ editUserError, setEditUserError ] = useState('')
         const [ confirmPassword, setConfirmPassword ] = useState('')
         const [ copyEditUserData, setCopyEditUserData ] = useState({...formProfile});  
-        
 
+
+        
         const handleChange = (e) => {
-            setCopyEditUserData({...formProfile, [e.target.name]: e.target.value});
-            
+            setCopyEditUserData({...copyEditUserData, [e.target.name]: e.target.value});  
         };
+       
 
         const handleChangeConfirmPassword = (e) => {
             setConfirmPassword(e.target.value);
@@ -21,6 +22,7 @@ export default function ModalEditUserData ({formProfile, setFormProfile, modalUs
 
         const handleSubmit = async (e) => {
             e.preventDefault();
+            e.stopPropagation()
     
             if (!copyEditUserData.nome || !copyEditUserData.email || !copyEditUserData.senha || !confirmPassword) {
                 setEditUserError("Preencha todos os campos")
@@ -33,7 +35,7 @@ export default function ModalEditUserData ({formProfile, setFormProfile, modalUs
             }
             
             setEditUserError("")
-            await setFormProfile({
+            setFormProfile({
                 nome: copyEditUserData.nome,
                 email: copyEditUserData.email,
                 senha: copyEditUserData.senha,
@@ -50,6 +52,8 @@ export default function ModalEditUserData ({formProfile, setFormProfile, modalUs
     
         }
 
+        
+
     return (
         <div className='edit-container'>
             <div className='modal-edit-user-data-container bg-colorFFFFFF'>
@@ -59,7 +63,8 @@ export default function ModalEditUserData ({formProfile, setFormProfile, modalUs
                 </div>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="nome" className='modal-label-gap color484848 rubik500 fsize-24'>Nome</label>
-                    <input type="text" name="nome" id="nome" className='modal-input' value={copyEditUserData.nome} onChange={(e) => handleChange(e)} />
+                    <input type="text" name="nome" id="nome" className='modal-input' value={copyEditUserData.nome} onChange={(e) =>
+                         handleChange(e)} />
 
                     <label htmlFor="e-mail" className='modal-label-gap color484848 rubik500 fsize-24'>E-mail</label>
                     <input type="e-mail" name="email" id="email" className='modal-input' value={copyEditUserData.email} onChange={(e) => handleChange(e)}/>
@@ -71,7 +76,7 @@ export default function ModalEditUserData ({formProfile, setFormProfile, modalUs
                     <input type="password" name="confirmacaoSenha" id="confirmacaoSenha" className='modal-input' value={confirmPassword} onChange={(e) => handleChangeConfirmPassword(e)} />
                     {editUserError && <h1 className='show-error-message'>{editUserError}</h1>}
                     <div className='modal-btn-gap'>
-                        <button className='modal-btn-confirm modal-edit-user-data-btn colorFFFFFF bg-color7978D9 rubik700 fsize-14 border-none pointer'>Confirmar</button>
+                        <button className='modal-btn-confirm modal-edit-user-data-btn colorFFFFFF bg-color7978D9 rubik700 fsize-14 border-none pointer' onClick={(e) => handleSubmit()}>Confirmar</button>
                     </div>
                 </form>
             </div>

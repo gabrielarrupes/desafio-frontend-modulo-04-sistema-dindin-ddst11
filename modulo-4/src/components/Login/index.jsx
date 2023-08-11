@@ -18,9 +18,9 @@ export default function Login({form, setForm, error, setError}) {
         try {
             const response = await api.post('login', form)
             const {token} = response.data
-            const {id} = response.data.usuario
+            const {nome} = response.data.usuario
             localStorage.setItem('token', token);
-            localStorage.setItem('id', id);
+            localStorage.setItem('nome', nome);
             navigate('/main')
         } catch (error) {
             setError(error.response.data.mensagem)

@@ -18,6 +18,7 @@ export default function Profile ({modal, setModal}) {
         try {
             const token = localStorage.getItem('token')
             const results = await api.get('usuario', { headers: { Authorization: `Bearer ${token}` } })
+            console.log(results);
             setFormProfile({
                 ...formProfile,
                 nome: results.data.nome,
@@ -27,6 +28,7 @@ export default function Profile ({modal, setModal}) {
             console.log(error)
           }
     }
+
 
     useEffect(() => {
         getUserData()    
