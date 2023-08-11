@@ -13,6 +13,7 @@ export default function Main() {
 
   const [modal, setModal] = useState(false);
   const [transact, setTransact] = useState('');
+  const [customType, setCustomType] = useState(0)
 
   const getTransactions = async () => {
 
@@ -42,7 +43,7 @@ export default function Main() {
             </div>
       </header>
       <main className='main-functionalities bg-colorFFFFFF'>
-        {modal && <Modal modal={modal} setModal={setModal}/>}
+        {modal && <Modal modal={modal} setModal={setModal} customType={customType} setCustomType={setCustomType} />}
         <div className='main-transactions'>
           <div className='main-filter'>
             <button className='btn-filter bg-colorFAFAFA color000000 lato700 fsize-12 border-none pointer' type='submit'>
@@ -51,7 +52,7 @@ export default function Main() {
             </button>
           </div>
             <div className='main-table'>
-              <Table transact={transact} setTransact={setTransact}/>
+              <Table transact={transact} setTransact={setTransact} customType={customType} setCustomType={setCustomType}/>
             </div>
           </div>
         <div className='main-resume'>

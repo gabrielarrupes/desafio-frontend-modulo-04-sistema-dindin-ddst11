@@ -22,9 +22,6 @@ export default function ModalEditUserData ({formProfile, setFormProfile, modalUs
         const handleSubmit = async (e) => {
             e.preventDefault();
     
-            console.log(copyEditUserData.senha)
-            console.log(confirmPassword);
-    
             if (!copyEditUserData.nome || !copyEditUserData.email || !copyEditUserData.senha || !confirmPassword) {
                 setEditUserError("Preencha todos os campos")
                 return;
@@ -42,7 +39,6 @@ export default function ModalEditUserData ({formProfile, setFormProfile, modalUs
                 senha: copyEditUserData.senha,
             });
 
-            console.log(formProfile)
             let token = await localStorage.getItem('token');
 
             try {

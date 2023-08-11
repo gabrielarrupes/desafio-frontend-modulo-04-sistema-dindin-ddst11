@@ -8,7 +8,8 @@ import DeleteTransaction from "../DeleteTransaction";
 import "./styles.css";
 
 
-export default function Table({ transact, setTransact }) {
+export default function Table({ transact, setTransact, customType, setCustomType }) {
+
   const [registroId, setRegistroId] = useState("");
   const [editModal, setEditModal] = useState(false);
   const [sort, setSort] = useState(true);
@@ -79,7 +80,7 @@ export default function Table({ transact, setTransact }) {
           </div>
         ))}
         {editModal && (
-                <EditModal editModal={editModal} id={registroId} setEditModal={setEditModal} transact={transact} setTransact={setTransact} />
+                <EditModal editModal={editModal} id={registroId} setEditModal={setEditModal} transact={transact} setTransact={setTransact} customType={customType} setCustomType={setCustomType} />
               )}
       </div>
   );

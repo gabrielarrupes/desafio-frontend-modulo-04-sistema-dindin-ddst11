@@ -3,7 +3,7 @@ import { api } from '../../services/api';
 import close from "../../assets/close.svg";
 import "./EditModal.css";
 
-export default function EditModal({ setEditModal, editModal, id, transact, setTransact }) {
+export default function EditModal({ setEditModal, editModal, id, transact, setTransact, customType, setCustomType }) {
 
   const currentTransaction = transact.find((current) => {return Number(current.id) === Number(id)})
 
@@ -101,20 +101,22 @@ export default function EditModal({ setEditModal, editModal, id, transact, setTr
         <form className="modal-transactions-in-out-form">
           <div className="modal-transactions-in-out-box">
             <button
-              className="modal-transactions-in-out-btn bg-colorB9B9B9 colorFFFFFF rubik700 border-none pointer"
+              className={`${customType === 1 ? "bg-colorFF576B" : "bg-colorB9B9B9"} modal-transactions-in-out-btn colorFFFFFF rubik700 border-none pointer`}
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                setCustomType(1)
                 setCopyEditModal({ ...copyEditModal, tipo: "entrada" });
               }}
             >
               Entrada
             </button>
             <button
-              className="modal-transactions-in-out-btn bg-colorB9B9B9 colorFFFFFF rubik700 border-none pointer"
+              className={`${customType === 2 ? "bg-color3A9FF1" : "bg-colorB9B9B9"} modal-transactions-in-out-btn colorFFFFFF rubik700 border-none pointer`}
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                setCustomType(2)
                 setCopyEditModal({...copyEditModal, tipo: "saida" });
               }}
             >

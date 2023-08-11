@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import blackArrow from '../../assets/black-arrow.svg'
 
 
-export default function Modal({ modal, setModal }) {
+export default function Modal({ modal, setModal, customType, setCustomType }) {
 
     const navigate = useNavigate();
 
@@ -20,7 +20,8 @@ export default function Modal({ modal, setModal }) {
 
     const [formError, setFormError] = useState('')
 
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState('');
+
 
     const getCategorias = async () => {
 
@@ -95,14 +96,16 @@ export default function Modal({ modal, setModal }) {
             </div>
             <form className='modal-transactions-in-out-form'>
                 <div className='modal-transactions-in-out-box'>
-                    <button className='modal-transactions-in-out-btn bg-colorB9B9B9 colorFFFFFF rubik700 border-none pointer' onClick={(e) => {
+                    <button className={`${customType === 1 ? "bg-colorFF576B" : "bg-colorB9B9B9"} modal-transactions-in-out-btn colorFFFFFF rubik700 border-none pointer`} onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
+                        setCustomType(1)
                         setFormData({ ...formData, tipo: "entrada" })
                     }}>Entrada</button>
-                    <button className='modal-transactions-in-out-btn bg-colorB9B9B9 colorFFFFFF rubik700 border-none pointer' onClick={(e) => {
+                    <button className={`${customType === 2 ? "bg-color3A9FF1" : "bg-colorB9B9B9"} modal-transactions-in-out-btn colorFFFFFF rubik700 border-none pointer`} onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
+                        setCustomType(2)
                         setFormData({ ...formData, tipo: "saida" })
                     }}>Saída</button>
                 </div>
