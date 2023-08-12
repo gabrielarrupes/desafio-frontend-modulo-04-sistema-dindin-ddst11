@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import blackArrow from '../../assets/black-arrow.svg'
 
 
-export default function Modal({ modal, setModal, customType, setCustomType }) {
+export default function Modal({ modal, setModal, customType, setCustomType}) {
 
     const navigate = useNavigate();
 
@@ -75,12 +75,16 @@ export default function Modal({ modal, setModal, customType, setCustomType }) {
             return;
         }
 
-
-        setFormData({...formData, valor: formData.valor * 1000 })
-
         let token = await localStorage.getItem('token')
         try {
-            await api.post('transacao', formData, { headers: { Authorization: `Bearer ${token}` } })
+            await api.post('transacao', {
+                tipo: formData.tipo,
+                descricao: formData.descricao,
+                valor: formData.valor * 1000,
+                data: formData.data,
+                categoria_id: formData.categoria_id
+                
+            }, { headers: { Authorization: `Bearer ${token}` } })
             setModal(!modal)
 
         } catch (error) {

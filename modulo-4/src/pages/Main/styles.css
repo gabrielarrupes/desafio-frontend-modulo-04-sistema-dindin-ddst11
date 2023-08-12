@@ -31,9 +31,10 @@
 
 .main-functionalities {
     width: 100vw;
-    height: 927px;
+    height: 100vh;
 
     display: flex;
+    justify-content: center;
     gap: 34px;
 
     padding: 55px 100px 0px 105px;

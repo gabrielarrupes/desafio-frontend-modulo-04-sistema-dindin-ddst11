@@ -7,7 +7,7 @@ export default function EditModal({ setEditModal, editModal, id, transact, setTr
 
   const currentTransaction = transact.find((current) => {return Number(current.id) === Number(id)})
 
-  const [copyEditModal, setCopyEditModal] = useState({...currentTransaction})
+  const [copyEditModal, setCopyEditModal] = useState({...currentTransaction, valor: currentTransaction.valor / 1000})
 
   const [formError, setFormError] = useState("");
   
@@ -69,13 +69,22 @@ export default function EditModal({ setEditModal, editModal, id, transact, setTr
     }
 
     setFormError('');
+
     try {
       const token = await localStorage.getItem('token')
-      await api.put(`transacao/${id}`, copyEditModal, { headers: { Authorization: `Bearer ${token}` } })
+      await api.put(`transacao/${id}`, {
+        tipo: copyEditModal.tipo,
+        descricao: copyEditModal.descricao,
+        valor: copyEditModal.valor * 1000,
+        data: copyEditModal.data,
+        categoria_id: copyEditModal.categoria_id
+
+      }, { headers: { Authorization: `Bearer ${token}` } })
     }catch(error){
       console.log(error)
     }
     setEditModal(!editModal)
+    setCustomType(0)
   }
 
   const formatCurrentDate = (date) => {
@@ -101,7 +110,7 @@ export default function EditModal({ setEditModal, editModal, id, transact, setTr
         <form className="modal-transactions-in-out-form">
           <div className="modal-transactions-in-out-box">
             <button
-              className={`${customType === 1 ? "bg-colorFF576B" : "bg-colorB9B9B9"} modal-transactions-in-out-btn colorFFFFFF rubik700 border-none pointer`}
+              className={`${customType === 1 || copyEditModal.tipo === "entrada" ? "bg-colorFF576B" : "bg-colorB9B9B9"} modal-transactions-in-out-btn colorFFFFFF rubik700 border-none pointer`}
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -112,7 +121,7 @@ export default function EditModal({ setEditModal, editModal, id, transact, setTr
               Entrada
             </button>
             <button
-              className={`${customType === 2 ? "bg-color3A9FF1" : "bg-colorB9B9B9"} modal-transactions-in-out-btn colorFFFFFF rubik700 border-none pointer`}
+              className={`${customType === 2 || copyEditModal.tipo === "saida"? "bg-color3A9FF1" : "bg-colorB9B9B9"} modal-transactions-in-out-btn colorFFFFFF rubik700 border-none pointer`}
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -145,7 +154,7 @@ export default function EditModal({ setEditModal, editModal, id, transact, setTr
               id="categoria_id"
               value={copyEditModal.categoria}
             >
-              <option>Selecione</option>
+              <option>{copyEditModal.categoria_nome} </option>
               {category.map((c) => (
                 <option key={c.id} value={c.descricao}>
                   {c.descricao}
